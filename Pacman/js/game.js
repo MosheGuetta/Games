@@ -46,10 +46,13 @@ function buildBoard() {
     const board = []
 
     // Initialize the board with food
-    for (let i = 0; i < width; i++) {
+    for (let i = 0; i < width; i++) 
+    {
         board.push([])
-        for (let j = 0; j < height; j++) {
+        for (let j = 0; j < height; j++) 
+        {
             board[i][j] = FOOD
+            gGame.foodCount ++
         }
     }
 
@@ -57,10 +60,12 @@ function buildBoard() {
     for (let i = 0; i < width; i++) {
         board[i][0] = WALL
         board[i][height - 1] = WALL
+        gGame.foodCount --
     }
     for (let j = 0; j < height; j++) {
         board[0][j] = WALL
         board[width - 1][j] = WALL
+        gGame.foodCount --
     }
 
     // Add new walls as specified
@@ -79,6 +84,7 @@ function buildBoard() {
     // Place the walls on the board
     for (const pos of wallPositions) {
         board[pos.i][pos.j] = WALL
+        gGame.foodCount --
     }
 
     // Set Pacman's initial position
@@ -116,7 +122,7 @@ function creatPowerFood(board){
     board[1][board[0].length - 2] = SUPER_FOOD
     board[board.length - 2][1] = SUPER_FOOD
     board[board.length - 2][board[0].length - 2] = SUPER_FOOD
-    // gGame.foodCount -= 4 
+    gGame.foodCount -= 4 
 }
 
 function updateScore(diff) {

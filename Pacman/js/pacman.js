@@ -14,7 +14,7 @@ function createPacman(board) {
         direction: 'right' 
     }
     board[gPacman.location.i][gPacman.location.j] = PACMAN;
-    gGame.foodCount--
+    gGame.foodCount-=22
 }
 
 

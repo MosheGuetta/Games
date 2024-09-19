@@ -19,7 +19,7 @@ function createGhosts(board)
     {
         createGhost(board)
     }
-    gIntervalGhosts = setInterval(moveGhosts, 400)
+    gIntervalGhosts = setInterval(moveGhosts, 10000)
 
 }
 
